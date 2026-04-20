@@ -187,7 +187,7 @@ function App() {
           </button>
 
           <div className="flex flex-col md:flex-row gap-10">
-            {/* Sidebar */}
+
             {categoria !== "busqueda_global" && (
               <aside className="w-full md:w-72">
                 <div className="sticky top-10 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm">
@@ -258,7 +258,7 @@ function App() {
           </div>
           <div className="w-full border-t border-slate-800 pt-8 mt-4 text-center">
             <p className="text-[10px] leading-relaxed text-slate-600 max-w-3xl mx-auto uppercase tracking-widest">
-              Este proyecto es **estrictamente educativo**. Las imágenes mostradas en el carrusel y catálogo
+              Este proyecto es educativo. Las imágenes mostradas en el carrusel y catálogo
               pertenecen a sus respectivos autores. No se realiza actividad comercial alguna con este sitio.
             </p>
           </div>
