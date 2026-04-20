@@ -111,7 +111,7 @@ function App() {
 
         <div className="relative max-w-7xl mx-auto px-6 w-full z-10">
           {!categoria ? (
-            <div className="animate-fade-in">
+            <div className="animate-fade-in ml-40">
               <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">Expertos en <br /><span className="text-blue-500">Recambios</span></h1>
               <p className="text-lg text-gray-300 max-w-lg">Stock real gestionado por Firebase.</p>
             </div>
