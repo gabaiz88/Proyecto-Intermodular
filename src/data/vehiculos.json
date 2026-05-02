@@ -1,0 +1,22 @@
+[
+  { "matricula": "1234BBB", "marca": "SEAT", "modelo": "Ibiza 1.4 TDI", "aceite": "5W40", "bateria": "60Ah", "neumaticos": "185/60 R15" },
+  { "matricula": "5678CCC", "marca": "VOLKSWAGEN", "modelo": "Golf VII 2.0 TDI", "aceite": "5W30", "bateria": "74Ah", "neumaticos": "225/45 R17" },
+  { "matricula": "9012DDD", "marca": "FORD", "modelo": "Focus 1.6 TDCi", "aceite": "5W30", "bateria": "70Ah", "neumaticos": "205/55 R16" },
+  { "matricula": "3456EEE", "marca": "RENAULT", "modelo": "Clio IV 1.5 dCi", "aceite": "5W30", "bateria": "60Ah", "neumaticos": "195/55 R16" },
+  { "matricula": "7890FFF", "marca": "PEUGEOT", "modelo": "308 1.6 BlueHDi", "aceite": "0W30", "bateria": "70Ah", "neumaticos": "205/55 R16" },
+  { "matricula": "1122GGG", "marca": "AUDI", "modelo": "A3 2.0 TDI", "aceite": "5W30", "bateria": "74Ah", "neumaticos": "225/40 R18" },
+  { "matricula": "3344HHH", "marca": "BMW", "modelo": "Serie 3 320d", "aceite": "5W30", "bateria": "80Ah", "neumaticos": "225/50 R17" },
+  { "matricula": "5566JJJ", "marca": "MERCEDES", "modelo": "Clase C 220d", "aceite": "5W30", "bateria": "80Ah", "neumaticos": "225/50 R17" },
+  { "matricula": "7788KKK", "marca": "TOYOTA", "modelo": "Auris Hybrid", "aceite": "0W20", "bateria": "45Ah", "neumaticos": "205/55 R16" },
+  { "matricula": "9900LLL", "marca": "OPEL", "modelo": "Astra K 1.6 CDTI", "aceite": "5W30", "bateria": "70Ah", "neumaticos": "225/45 R17" },
+  { "matricula": "+", "marca": "CITROEN", "modelo": "C4 Cactus 1.2 PureTech", "aceite": "0W30", "bateria": "60Ah", "neumaticos": "205/55 R16" },
+  { "matricula": "3434NNN", "marca": "HYUNDAI", "modelo": "i30 1.6 CRDi", "aceite": "5W30", "bateria": "70Ah", "neumaticos": "205/55 R16" },
+  { "matricula": "5656PPP", "marca": "KIA", "modelo": "Sportage 1.7 CRDi", "aceite": "5W30", "bateria": "80Ah", "neumaticos": "225/60 R17" },
+  { "matricula": "7878RRR", "marca": "Dacia", "modelo": "Sandero 1.5 dCi", "aceite": "5W30", "bateria": "60Ah", "neumaticos": "185/65 R15" },
+  { "matricula": "9090SSS", "marca": "FIAT", "modelo": "500 1.2 Fire", "aceite": "5W40", "bateria": "50Ah", "neumaticos": "185/55 R15" },
+  { "matricula": "1313TTT", "marca": "NISSAN", "modelo": "Qashqai J11 1.5 dCi", "aceite": "5W30", "bateria": "70Ah", "neumaticos": "215/60 R17" },
+  { "matricula": "2424VVV", "marca": "ALFA ROMEO", "modelo": "Giulietta 1.6 JTDm", "aceite": "5W30", "bateria": "70Ah", "neumaticos": "225/45 R17" },
+  { "matricula": "3535WWW", "marca": "HONDA", "modelo": "Civic 1.6 i-DTEC", "aceite": "0W30", "bateria": "74Ah", "neumaticos": "225/45 R17" },
+  { "matricula": "4646XXX", "marca": "MAZDA", "modelo": "CX-5 2.2 SkyActiv-D", "aceite": "5W30", "bateria": "80Ah", "neumaticos": "225/65 R17" },
+  { "matricula": "5757YYY", "marca": "SKODA", "modelo": "Octavia 1.6 TDI", "aceite": "5W30", "bateria": "70Ah", "neumaticos": "205/55 R16" }
+]
