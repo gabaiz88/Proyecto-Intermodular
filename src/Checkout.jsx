@@ -16,7 +16,6 @@ export const Checkout = ({ onBack }) => {
     const maskDate = "00/00";
 
 
-    // 2. CORRECCIÓN: Definimos handlePago para que el botón funcione
     const handlePago = () => {
         // Validación básica de email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -46,13 +45,7 @@ export const Checkout = ({ onBack }) => {
             allowOutsideClick: false
         }).then((result) => {
             if (result.isConfirmed) {
-                try {
-                    clearCart();
-                    localStorage.removeItem('cart'); 
-                    localStorage.clear();       
-                } catch (err) {
-                    console.error("Error al limpiar carrito:", err);
-                }
+                clearCart();
                 window.location.replace('/');
             }
         });
@@ -99,11 +92,11 @@ export const Checkout = ({ onBack }) => {
 
             <div className="flex flex-col md:flex-row gap-12 bg-white p-10 rounded-3xl shadow-2xl max-w-6xl w-full">
 
-                {/* COLUMNA IZQUIERDA: PASARELA */}
+                {/* Pasarela de pago */}
                 <div className="flex-1">
                     <h2 className="text-2xl font-black mb-6">Confirmar Pago</h2>
 
-                    {/* TARJETA VISUAL */}
+                    {/* Tarjeta */}
                     <div className={`relative w-80 h-48 mx-auto mb-10 transition-transform duration-700 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-700 to-blue-900 rounded-2xl p-6 text-white backface-hidden shadow-xl">
                             <div className="flex justify-between items-start mb-8">
@@ -129,7 +122,7 @@ export const Checkout = ({ onBack }) => {
                         </div>
                     </div>
 
-                    {/* INPUTS DE PAGO */}
+                    {/* Inputs */}
                     <div className="space-y-4 max-w-sm mx-auto">
                         <input type="text" placeholder="Número de Tarjeta" onKeyDown={(e) => handleCardInput(e, cardNumber, setCardNumber, maskCard)} value={cardNumber.join("")} className="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-mono" readOnly />
                         <div className="flex gap-4">
@@ -151,7 +144,6 @@ export const Checkout = ({ onBack }) => {
                     </div>
                 </div>
 
-                {/* COLUMNA DERECHA: EL DETALLE QUE TE FALTABA */}
                 <div className="w-full md:w-80 bg-slate-50 p-6 rounded-2xl border flex flex-col">
                     <h3 className="font-bold text-slate-400 text-xs mb-4 tracking-widest uppercase">Tu Pedido</h3>
 
@@ -159,28 +151,26 @@ export const Checkout = ({ onBack }) => {
                         {cart.map((item) => (
                             <div key={item.id} className="flex justify-between items-center gap-3">
                                 <div className="flex items-center gap-3">
-                                    {/* Si tu imagen se llama 'img' o 'imagen', cámbialo aquí */}
                                     <img
                                         src={item.img}
                                         alt={item.name}
                                         className="w-10 h-10 object-contain bg-white rounded border p-1"
                                     />
                                     <div className="text-[11px]">
-                                        {/* Si el nombre se llama 'nombre', cámbialo aquí */}
                                         <p className="font-bold text-slate-700 line-clamp-1">{item.name || item.nombre}</p>
                                         <p className="text-slate-400">Cant: {item.quantity || item.cantidad}</p>
                                     </div>
                                 </div>
                                 <span className="text-xs font-bold">
                                     {(() => {
-                                        // 1. Convertimos a string y cambiamos comas por puntos
+                                        // Convertido a String
                                         const p = String(item.precio || item.price || "0").replace(',', '.').replace(/[^0-9.]/g, '');
                                         const c = Number(item.cantidad || item.quantity || 1);
 
-                                        // 2. Multiplicamos asegurando que sean números
+                                        // Multiplicacion
                                         const resultado = parseFloat(p) * c;
 
-                                        // 3. Si el resultado sigue siendo raro, ponemos 0.00
+                                        // Si hay error, poner 0
                                         return isNaN(resultado) ? "0.00" : resultado.toFixed(2);
                                     })()}€
                                 </span>

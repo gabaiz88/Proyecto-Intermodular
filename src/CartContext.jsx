@@ -4,7 +4,18 @@ import Swal from 'sweetalert2'
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem('carrito_proyecto');
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('carrito_proyecto', JSON.stringify(cart));
+    }, [cart]);
+    
+    const clearCart = () => {
+        setCart([]); // inicializacion en vacio para que el localstorage se limpie
+    };
 
     // Añadir al carrito
     const addToCart = (product) => {
@@ -13,12 +24,11 @@ export const CartProvider = ({ children }) => {
 
             if (existing) {
                 if (existing.quantity >= product.stock) {
-                    // AQUÍ EL ALERT LINDO
                     Swal.fire({
                         title: 'Sin stock suficiente',
                         text: `Lo sentimos, solo tenemos ${product.stock} unidades disponibles de este artículo.`,
                         icon: 'warning',
-                        confirmButtonColor: '#2563eb', // El azul de tu logo
+                        confirmButtonColor: '#2563eb', 
                         confirmButtonText: 'Entendido'
                     });
                     return prevCart;
@@ -48,17 +58,16 @@ export const CartProvider = ({ children }) => {
         setCart((prevCart) => {
             const item = prevCart.find(i => i.id === id);
 
-            // Si intentamos sumar (+1) pero ya no hay stock disponible
+            // Sumar stock
             if (amount > 0 && item && item.quantity >= currentStock) {
-                // USAMOS SWEETALERT AQUÍ TAMBIÉN
                 Swal.fire({
                     title: 'Tope de stock alcanzado',
                     text: `Solo disponemos de ${currentStock} unidades`,
                     icon: 'info',
-                    toast: true,               // Lo hace pequeñito
-                    position: 'top-end',       // Sale en la esquina superior derecha
-                    showConfirmButton: false,  // No necesita botón de OK
-                    timer: 4000,               // Se cierra solo 
+                    toast: true,              
+                    position: 'top-end',       
+                    showConfirmButton: false,  
+                    timer: 4000,               
                     timerProgressBar: true
                 });
                 return prevCart;
@@ -76,7 +85,7 @@ export const CartProvider = ({ children }) => {
     const totalPrice = cart.reduce((acc, item) => acc + (parseFloat(item.precio) * item.quantity), 0);
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, totalItems, totalPrice }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, totalItems, totalPrice, clearCart }}>
             {children}
         </CartContext.Provider>
     );

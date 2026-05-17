@@ -7,7 +7,7 @@ import { CartDrawer } from './CartDrawer';
 import { Checkout } from './Checkout';
 
 function App() {
-  // Estados
+  // Estados 
   const [categoria, setCategoria] = useState(null)
   const [filtroSeleccionado, setFiltroSeleccionado] = useState("")
   const [productos, setProductos] = useState([])
@@ -321,7 +321,6 @@ function App() {
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
                             <span className="text-xs font-bold text-blue-500 uppercase">{prod.cat}</span>
-                            {/* Añadimos el TIPO como una etiqueta sutil */}
                             {prod.tipo && (
                               <span className="text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded-md font-bold uppercase">
                                 {prod.tipo}
@@ -333,7 +332,6 @@ function App() {
 
                           <div className="flex items-baseline gap-2 mt-2">
                             <p className="text-2xl font-black text-blue-600">{prod.precio}</p>
-                            {/* Opcional: Mostrar stock disponible de forma discreta */}
                             <span className="text-xs text-slate-400 font-medium">Stock: {prod.stock}</span>
                           </div>
                         </div>
@@ -344,7 +342,7 @@ function App() {
                               <button onClick={() => updateQuantity(prod.id, -1)} className="w-10 h-10 flex items-center justify-center text-slate-600 hover:bg-white rounded-xl transition-all font-bold text-xl">-</button>
                               <span className="w-12 text-center font-black text-slate-800 text-lg">{cantidad}</span>
                               <button
-                                onClick={() => updateQuantity(prod.id, 1, prod.stock)} // <-- Pasamos prod.stock
+                                onClick={() => updateQuantity(prod.id, 1, prod.stock)}
                                 className="..."
                               >
                                 +
@@ -398,13 +396,13 @@ function App() {
         </div>
       </footer>
 
-      {/* PANEL LATERAL DEL CARRITO */}
+      {/* Panel lateral del carrito */}
       <CartDrawer
         isOpen={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
         onCheckout={() => {
           setIsDrawerOpen(false);
-          setShowCheckout(true); 
+          setShowCheckout(true);
         }}
       />
     </div>

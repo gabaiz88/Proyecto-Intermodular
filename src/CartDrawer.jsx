@@ -8,7 +8,6 @@ export const CartDrawer = ({ isOpen, onClose, onCheckout }) => {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Fondo oscuro para cerrar al hacer click fuera */}
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
 
       <div className="absolute inset-y-0 right-0 max-w-full flex">
